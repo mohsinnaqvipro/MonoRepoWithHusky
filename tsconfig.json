@@ -1,13 +1,18 @@
 {
-  "extends": "./tsconfig.base.json",
-  "compileOnSave": false,
-  "files": [],
+  "compilerOptions": {
+    "module": "ESNext", // Use ES Modules
+    "moduleResolution": "Node",
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
+  "include": ["apps/**/*"],
   "references": [
     {
-      "path": "./apps/backend"
+      "path": "./apps/frontend"
     },
     {
-      "path": "./apps/frontend"
+      "path": "./apps/backend"
     }
   ]
 }

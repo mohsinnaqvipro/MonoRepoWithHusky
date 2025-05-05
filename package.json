@@ -5,7 +5,14 @@
   "scripts": {
     "serve:backend": "nx serve backend",
     "serve:frontend": "nx serve frontend",
-    "serve:app": "nx run-many --target=serve --projects=backend,frontend --parallel"
+    "serve:app": "nx run-many --target=serve --projects=backend,frontend --parallel",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.ts": "eslint --fix",
+    "*.tsx": "eslint --fix",
+    "*.js": "eslint --fix",
+    "*.jsx": "eslint --fix"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +28,8 @@
     "rxjs": "^7.8.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
     "@eslint/compat": "^1.1.1",
     "@eslint/eslintrc": "^2.1.1",
     "@eslint/js": "^9.8.0",
@@ -56,8 +65,10 @@
     "eslint-plugin-jsx-a11y": "6.10.1",
     "eslint-plugin-react": "7.35.0",
     "eslint-plugin-react-hooks": "5.0.0",
+    "husky": "^8.0.3",
     "jiti": "2.4.2",
     "jsdom": "~22.1.0",
+    "lint-staged": "^15.5.1",
     "nx": "20.8.1",
     "prettier": "^2.6.2",
     "tslib": "^2.3.0",
