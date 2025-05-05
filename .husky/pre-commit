@@ -1,1 +1,4 @@
-npx lint-staged
+echo "Running lint-staged checks..."
+# Use --no-stash to prevent lint-staged from stashing unstaged changes
+# Use --verbose to see more output for debugging
+npx lint-staged --no-stash --verbose
