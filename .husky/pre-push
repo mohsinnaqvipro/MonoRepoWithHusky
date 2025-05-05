@@ -1,4 +1,15 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm test
+echo "🔧 Building backend and frontend using Nx..."
+
+# Build both apps in parallel
+npx nx run-many --target=build --projects=backend,frontend --parallel
+
+# Check if build passed
+if [ $? -ne 0 ]; then
+  echo "❌ Build failed. Push aborted."
+  exit 1
+fi
+
+echo "✅ Build successful. Proceeding with push..."
