@@ -59,7 +59,7 @@ export default [
     },
     rules: {
       'prettier/prettier': ['error'],
-      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-unsafe-argument': 'warn',
       '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
       '@typescript-eslint/explicit-function-return-type': 'off',

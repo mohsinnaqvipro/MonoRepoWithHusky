@@ -4,7 +4,11 @@ import { Controller, Get } from '@nestjs/common';
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {
-    console.log('AppController');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const test: any = () => {
+      console.log('Hello');
+    };
+    test();
   }
 
   @Get()
