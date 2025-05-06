@@ -3,13 +3,7 @@ import { Controller, Get } from '@nestjs/common';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const test: any = () => {
-      console.log('Hello');
-    };
-    test();
-  }
+  constructor(private readonly appService: AppService) {}
 
   @Get()
   getData() {

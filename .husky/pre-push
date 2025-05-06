@@ -1,7 +1,6 @@
-echo "🔧 Building backend and frontend using Nx..."
+echo "🔍 Detecting locally affected projects..."
 
-# Build both apps in parallel and fail if any fails
-npx nx run-many --target=build --projects=backend,frontend --parallel
+npx nx affected --target=build --parallel --base=HEAD
 
 if [ $? -ne 0 ]; then
   echo "❌ Build failed. Push aborted."
