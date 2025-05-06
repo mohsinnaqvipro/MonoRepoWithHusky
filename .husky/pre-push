@@ -1,9 +1,8 @@
 echo "🔧 Building backend and frontend using Nx..."
 
-# Run builds in strict mode
-npx nx run-many --target=build --projects=backend,frontend --parallel --strict
+# Build both apps in parallel and fail if any fails
+npx nx run-many --target=build --projects=backend,frontend --parallel
 
-# Check for build failure
 if [ $? -ne 0 ]; then
   echo "❌ Build failed. Push aborted."
   exit 1
