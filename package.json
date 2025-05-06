@@ -6,6 +6,7 @@
     "serve:backend": "nx serve backend",
     "serve:frontend": "nx serve frontend",
     "serve:app": "nx run-many --target=serve --projects=backend,frontend --parallel",
+    "build:all": "nx run-many --target=build --projects=backend,frontend --parallel --verbose",
     "prepare": "husky install"
   },
   "lint-staged": {
