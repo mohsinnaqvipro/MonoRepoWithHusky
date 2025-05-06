@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { execSync } from 'child_process';
+import path from 'path';
 
-// Define the Vite configuration
 export default defineConfig({
   root: __dirname,
   cacheDir: './node_modules/.vite/frontend',
@@ -22,14 +22,24 @@ export default defineConfig({
     rollupOptions: {
       plugins: [
         {
-          name: 'tsc-check',
+          name: 'pre-checks',
           buildStart() {
             try {
-              // Run TypeScript check before building
-              execSync('tsc --noEmit', { stdio: 'inherit' });
+              console.log('🔍 Running ESLint...');
+              // Fix the path to ensure it finds the files
+              execSync('eslint "src/**/*.{ts,tsx}" --max-warnings=0', {
+                stdio: 'inherit',
+                cwd: path.resolve(__dirname), // Ensure correct working directory
+              });
+
+              console.log('🔍 Running TypeScript...');
+              execSync('tsc --noEmit', {
+                stdio: 'inherit',
+                cwd: path.resolve(__dirname), // Ensure correct working directory
+              });
             } catch (error) {
-              console.error('TypeScript check failed!', error); // In case of any TypeScript error
-              process.exit(1); // This will fail the build
+              console.error('❌ Pre-checks failed!', error);
+              process.exit(1);
             }
           },
         },

@@ -689,9 +689,7 @@ export function NxWelcome({ title }: { title: string }) {
                 </svg>
                 <span>
                   Install Nx Console for JetBrains
-                  <span>
-                    Available for WebStorm, Intellij IDEA Ultimate and more!
-                  </span>
+                  <span>Available for WebStorm, Intellij IDEA Ultimate and more!</span>
                 </span>
               </a>
               <div id="nx-cloud" className="rounded shadow">
@@ -719,8 +717,7 @@ export function NxWelcome({ title }: { title: string }) {
                   </h2>
                 </div>
                 <p>Your Nx Cloud remote cache setup is almost complete.</p>
-
-                <a href="" target="_blank" rel="noreferrer">
+                <a href="/" target="_blank" rel="noreferrer">
                   Click here to finish
                 </a>
               </div>
