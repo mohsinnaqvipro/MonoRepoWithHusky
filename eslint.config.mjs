@@ -61,8 +61,13 @@ export default [
       'prettier/prettier': ['error'],
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-unsafe-argument': 'error',
-      '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
       '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/typedef': [
+        'error',
+        {
+          variableDeclaration: true,
+        },
+      ],
       '@typescript-eslint/no-unused-vars': [
         'error',
         {

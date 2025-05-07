@@ -1,11 +1,17 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
+interface User {
+  name: string;
+  age: number;
+  email: string;
+}
+
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {
-    console.log('AppController123');
-    const user = {
+    console.log('AppController1234');
+    const user: User = {
       name: 'mohsin',
       age: 29,
       email: 'mohsin@gmail.com',
