@@ -10,7 +10,7 @@ export class AppController {
       age: 29,
       email: 'mohsin@gmail.com',
     };
-    console.log(user);
+    console.log(user, 123);
   }
 
   @Get()
