@@ -2,3 +2,20 @@ echo "Running lint-staged checks..."
 # Use --no-stash to prevent lint-staged from stashing unstaged changes
 # Use --verbose to see more output for debugging
 npx lint-staged --no-stash --verbose
+
+# Get current branch name
+branch_name=$(git symbolic-ref --short HEAD)
+
+#Allowed patterns: main, development, staging, release/x.y.z, feature/VOYAG-123, hotfix/VOYAG-123
+
+if echo "$branch_name" | grep -Eq '^(main|development|staging|release/[0-9]+\.[0-9]+\.[0-9]+|(feature|hotfix)/VOYAG-[0-9]+)$'; then
+  echo "✅ Branch name is valid: $branch_name"
+else
+  echo "❌ Invalid branch name: $branch_name"
+  echo "Branch name must be one of:"
+  echo "  - main, development, staging"
+  echo "  - release/x.y.z (e.g. release/1.0.0)"
+  echo "  - feature/VOYAG-123"
+  echo "  - hotfix/VOYAG-123"
+  exit 1
+fi
