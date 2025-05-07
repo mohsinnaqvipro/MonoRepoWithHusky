@@ -16,7 +16,7 @@ export class AppController {
       age: 29,
       email: 'mohsin@gmail.com',
     };
-    console.log(user, 123);
+    console.log(user);
   }
 
   @Get()
