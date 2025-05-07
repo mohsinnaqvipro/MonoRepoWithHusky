@@ -1,6 +1,11 @@
 echo "🔍 Detecting locally affected projects..."
 
-npx nx affected --target=build --parallel --base=HEAD
+# Get the base branch to compare against
+BASE_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+BASE_COMMIT=$(git merge-base origin/$BASE_BRANCH HEAD 2>/dev/null || git merge-base origin/main HEAD)
+
+# Only build projects affected by changes
+npx nx affected --target=build --parallel --base=$BASE_COMMIT
 
 if [ $? -ne 0 ]; then
   echo "❌ Build failed. Push aborted."
