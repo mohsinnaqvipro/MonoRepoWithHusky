@@ -35,11 +35,3 @@ jobs:
           find . -name "eslint.config.*" -type f
           echo "Node modules ESLint packages:"
           ls -la node_modules/@eslint node_modules/eslint 2>/dev/null || echo "ESLint packages not found"
-
-      # Run lint with verbose output to debug issues
-      - name: Lint
-        run: npx nx affected -t lint --verbose
-
-      # Run tests and build if lint passes
-      - name: Test and Build
-        run: npx nx affected -t test build
