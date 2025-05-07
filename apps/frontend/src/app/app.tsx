@@ -5,6 +5,7 @@ import NxWelcome from './nx-welcome';
 import { Route, Routes, Link } from 'react-router-dom';
 
 export function App() {
+  console.log('App Component 123');
   return (
     <div>
       <NxWelcome title="@myorg/frontend" />
