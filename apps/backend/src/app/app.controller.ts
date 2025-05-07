@@ -5,6 +5,12 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {
     console.log('AppController123');
+    const user = {
+      name: 'mohsin',
+      age: 29,
+      email: 'mohsin@gmail.com',
+    };
+    console.log(user);
   }
 
   @Get()
